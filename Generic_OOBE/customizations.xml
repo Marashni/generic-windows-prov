@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WindowsCustomizations>
+  <PackageConfig xmlns="urn:schemas-Microsoft-com:Windows-ICD-Package-Config.v1.0">
+    <ID>{06ee4226-4397-478d-b5c1-ffb737f3da6a}</ID>
+    <Name>Generic_OOBE</Name>
+    <Version>1.1</Version>
+    <OwnerType>ITAdmin</OwnerType>
+    <Rank>0</Rank>
+    <Notes></Notes>
+  </PackageConfig>
+  <Settings xmlns="urn:schemas-microsoft-com:windows-provisioning">
+    <Customizations>
+      <Common>
+        <Accounts>
+          <ComputerAccount>
+            <ComputerName>LT-%SERIAL%</ComputerName>
+          </ComputerAccount>
+          <Users>
+            <User UserName="provadmin" Name="provadmin">
+              <Password>ChangeP@ssw0rd</Password>
+              <UserGroup>Administrators</UserGroup>
+            </User>
+          </Users>
+        </Accounts>
+        <OOBE>
+          <Desktop>
+            <HideOobe>True</HideOobe>
+          </Desktop>
+        </OOBE>
+        <ProvisioningCommands>
+          <DeviceContext>
+            <CommandFiles>
+              <CommandFile Name="choco_prov">C:\Users\Audio\Documents\Windows Imaging and Configuration Designer (WICD)\Generic_OOBE\install.ps1</CommandFile>
+              <CommandFile Name="install">C:\Users\Audio\Documents\Windows Imaging and Configuration Designer (WICD)\Generic_OOBE\runOnce.reg</CommandFile>
+              <CommandFile Name="prov">C:\Users\Audio\Documents\Windows Imaging and Configuration Designer (WICD)\Generic_OOBE\prov.bat</CommandFile>
+            </CommandFiles>
+            <CommandLine>cmd /c prov.bat</CommandLine>
+          </DeviceContext>
+        </ProvisioningCommands>
+      </Common>
+    </Customizations>
+  </Settings>
+</WindowsCustomizations>
